@@ -53,7 +53,7 @@ class XArmInterface:
         rospy.init_node("xarm_move_group_interface", anonymous=True)
         robot = moveit_commander.RobotCommander()
         scene = moveit_commander.PlanningSceneInterface()
-        group_name = "xarm"
+        group_name = "xarm7"
         move_group = moveit_commander.MoveGroupCommander(group_name)
         display_trajectory_pub = rospy.Publisher(
             "/move_group/display_planned_path",
@@ -66,7 +66,7 @@ class XArmInterface:
         eef_link = move_group.get_end_effector_link()
         print("============ End effector link: %s" % eef_link)
         group_names = robot.get_group_names()
-        print("============ End effector link: %s" % eef_link)
+        print("============ Available Planning Groups:", group_names)
         print("============ Printing robot state")
         print(robot.get_current_state())
         print("")
